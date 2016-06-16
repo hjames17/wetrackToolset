@@ -2,5 +2,6 @@
 .svn/
 .project
 .settings/
-IM点餐接口说明.doc
-后台接口说明.doc
+utils/target/
+web/target/
+
