@@ -9,13 +9,9 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>wetrack-utils</artifactId>
-    <!--在父级pom定义-->
-    <version>${export.utils.version}</version>
-    <packaging>jar</packaging>
-
-    <name>wetrack utils</name>
-    <description>wetrack studio tool set, utils</description>
+    <groupId>studio.wetrack</groupId>
+    <artifactId>account-service</artifactId>
+    <description>wetrack studio tool set, account service</description>
     <url>https://github.com/hjames17/wetrackToolset</url>
     <licenses>
         <license>
@@ -36,51 +32,44 @@
         <developerConnection>scm:git:git@github.com:hjames17/wetrackToolset.git</developerConnection>
         <url>git@github.com:hjames17/wetrackToolset.git</url>
     </scm>
-
-    <properties>
-        <fasterxml.jackson.version>2.5.0</fasterxml.jackson.version>
-    </properties>
+    <!--在父级pom定义-->
+    <version>${export.accserv.version}</version>
 
     <dependencies>
         <dependency>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-classic</artifactId>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.0.1</version>
+            <scope>provided</scope>
         </dependency>
-
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>org.springframework.data</groupId>
-            <artifactId>spring-data-commons</artifactId>
+            <groupId>studio.wetrack</groupId>
+            <artifactId>wetrack-web</artifactId>
+            <version>${export.utils.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>${spring.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>${spring.version}</version>
+            <scope>provided</scope>
         </dependency>
 
+
         <dependency>
-            <groupId>commons-io</groupId>
-            <artifactId>commons-io</artifactId>
-            <version>2.4</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.httpcomponents</groupId>
-            <artifactId>httpclient</artifactId>
-            <version>4.5</version>
-        </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-core</artifactId>
-            <version>${fasterxml.jackson.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-            <version>${fasterxml.jackson.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-annotations</artifactId>
-            <version>${fasterxml.jackson.version}</version>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
         </dependency>
     </dependencies>
+
 </project>
