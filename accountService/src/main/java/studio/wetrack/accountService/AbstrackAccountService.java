@@ -2,6 +2,7 @@ package studio.wetrack.accountService;
 
 import org.springframework.util.StringUtils;
 import studio.wetrack.accountService.domain.*;
+import studio.wetrack.base.utils.RegExUtil;
 import studio.wetrack.web.auth.domain.Token;
 import studio.wetrack.web.auth.domain.User;
 import studio.wetrack.web.auth.service.TokenService;
@@ -24,6 +25,26 @@ public abstract class AbstrackAccountService implements AccountService {
     public AbstrackAccountService(TokenService tokenService){
         this.tokenService = tokenService;
     }
+
+    @Override
+    public LoginOut login(SmartLoginForm form) throws AccountException {
+        if(StringUtils.isEmpty(form.getAccount())){
+            throw new AccountException("无效的用户");
+        }
+
+        LoginForm lf = new LoginForm();
+        if(RegExUtil.isMobilePhone(form.getAccount())){
+            lf.setPhone(form.getAccount());
+        }else if(RegExUtil.isValidEmail(form.getAccount())){
+            lf.setEmail(form.getAccount());
+        }else{
+            //默认认为输入的使用用户名
+            lf.setUserName(form.getAccount());
+        }
+        lf.setPassword(form.getPassword());
+        return login(form);
+    }
+
 
     @Override
     public LoginOut login(LoginForm form) throws AccountException {
@@ -49,7 +70,6 @@ public abstract class AbstrackAccountService implements AccountService {
         LoginOut loginOut = new LoginOut();
         loginOut.setId(id);
         loginOut.setToken(token.getToken());
-
 
         return loginOut;
     }

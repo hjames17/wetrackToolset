@@ -18,9 +18,10 @@ import java.nio.charset.Charset;
 
 /**
  * Created by zhanghong on 15/12/24 平安夜
- * 处理带有@AjaxResponseWrapper的请求，包装成一个AjaxResult 返回
- *
+ * 处理带有{@link AjaxResponseWrapper}的请求，将其返回值包装成一个{@link AjaxResult}返回
+ * 已废弃，请使用AjaxResponseReturnValueHandler
  */
+@Deprecated
 public class AjaxResponseInterceptor extends HandlerInterceptorAdapter {
 
 
@@ -74,11 +75,11 @@ public class AjaxResponseInterceptor extends HandlerInterceptorAdapter {
 
     /**
      * 正常处理的结果在这里包装
-     * @param request
-     * @param response
-     * @param handler
-     * @param modelAndView
-     * @throws Exception
+     * @param request 请求
+     * @param response 响应
+     * @param handler 处理函数
+     * @param modelAndView 数据
+     * @throws Exception 异常
      */
     @Override
     public void postHandle(
@@ -117,6 +118,7 @@ public class AjaxResponseInterceptor extends HandlerInterceptorAdapter {
                 String dataKey = Conventions.getVariableNameForReturnType(handlerMethod.getMethod(), handlerMethod.getMethod().getReturnType(), null);
 //                String dataKey = getSimpleNameWithFirstLetterInLowerCase(t.getTypeName());
                 Object data = modelAndView.getModelMap().get(dataKey);
+
                 ajaxResult.setData(data);
             }
         }

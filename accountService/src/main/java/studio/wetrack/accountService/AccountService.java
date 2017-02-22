@@ -8,6 +8,7 @@ import studio.wetrack.accountService.domain.*;
 public interface AccountService{
 
     LoginOut login(LoginForm form) throws AccountException;
+    LoginOut login(SmartLoginForm form) throws AccountException;
 
     void logout(LoginOut form) throws AccountException;
 

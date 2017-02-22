@@ -10,7 +10,7 @@ import java.util.Date;
  */
 public class Token implements Serializable{
 
-    private final long created = System.currentTimeMillis();
+    private long created = System.currentTimeMillis();
     private final String token;
     private User user;
     private boolean loggedout; //token已经退出
@@ -38,6 +38,18 @@ public class Token implements Serializable{
 
     public  boolean isLoggedout(){
         return loggedout;
+    }
+
+    public long getCreated() {
+        return created;
+    }
+
+    public void setCreated(long created) {
+        this.created = created;
+    }
+
+    public void setLoggedout(boolean loggedout) {
+        this.loggedout = loggedout;
     }
 
     @Override

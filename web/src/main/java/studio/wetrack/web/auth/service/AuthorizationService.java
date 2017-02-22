@@ -22,8 +22,8 @@ public class AuthorizationService {
 //    }
     /**
      * 授权token持有人访问指定的权限
-     * @param tokenString
-     * @param requestRole
+     * @param tokenString token字符串
+     * @param requestRole 角色名
      * @return true 当token持有人拥有所需要的权限时
      */
     public boolean grantAccess(String tokenString, GrantedAuthority requestRole){

@@ -37,6 +37,7 @@ public class User implements UserDetails {
      * User构造函数
      * @param id id
      * @param password password
+     * @param loginLifeTime 过期时间
      * @param roles 角色名称的集合
      */
     public User(String id, String password, int loginLifeTime, String... roles){

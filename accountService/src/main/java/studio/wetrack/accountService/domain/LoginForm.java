@@ -5,6 +5,7 @@ package studio.wetrack.accountService.domain;
  */
 public class LoginForm{
     String uid;
+    String userName;
     String email;
     String phone;
     String weixinId;
@@ -54,4 +55,12 @@ public class LoginForm{
     public String getUid() {return uid;}
 
     public void setUid(String uid) {this.uid = uid;}
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
 }
