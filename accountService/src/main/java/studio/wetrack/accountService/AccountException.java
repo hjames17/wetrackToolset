@@ -1,6 +1,7 @@
 package studio.wetrack.accountService;
 
-import studio.wetrack.web.exception.BusinessException;
+
+import studio.wetrack.base.exception.BusinessException;
 
 /**
  * Created by zhanghong on 16/7/18.

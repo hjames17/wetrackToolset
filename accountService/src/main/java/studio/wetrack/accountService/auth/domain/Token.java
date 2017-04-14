@@ -1,4 +1,4 @@
-package studio.wetrack.web.auth.domain;
+package studio.wetrack.accountService.auth.domain;
 
 import java.io.Serializable;
 import java.util.Date;

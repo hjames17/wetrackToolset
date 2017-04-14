@@ -10,6 +10,7 @@ public class LoginForm{
     String phone;
     String weixinId;
     String password;
+    String smsCode; //手机验证码登录
     Type type;
 
     public String getEmail() {
@@ -62,5 +63,13 @@ public class LoginForm{
 
     public void setUserName(String userName) {
         this.userName = userName;
+    }
+
+    public String getSmsCode() {
+        return smsCode;
+    }
+
+    public void setSmsCode(String smsCode) {
+        this.smsCode = smsCode;
     }
 }

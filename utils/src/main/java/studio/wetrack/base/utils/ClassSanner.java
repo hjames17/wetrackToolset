@@ -2,6 +2,7 @@ package studio.wetrack.base.utils;
 
 import java.io.File;
 import java.io.IOException;
+import java.lang.annotation.Annotation;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Enumeration;
@@ -42,6 +43,26 @@ public class ClassSanner {
         List<Class> filtered = new ArrayList<>();
         for(Class cls : clses){
             if(type.isAssignableFrom(cls)){
+                filtered.add(cls);
+            }
+        }
+
+        return filtered;
+    }
+
+    public static List<Class> scanClassesOfAnnotationInPackage(Class<? extends Annotation> annotation, String packageName){
+        Class[] clses = new Class[0];
+        try {
+            clses = getClasses(packageName);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        List<Class> filtered = new ArrayList<>();
+        for(Class cls : clses){
+            if(cls.isAnnotationPresent(annotation)){
                 filtered.add(cls);
             }
         }

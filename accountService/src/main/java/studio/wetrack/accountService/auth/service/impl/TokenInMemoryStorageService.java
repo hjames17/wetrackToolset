@@ -1,8 +1,8 @@
-package studio.wetrack.web.auth.service.impl;
+package studio.wetrack.accountService.auth.service.impl;
 
 
-import studio.wetrack.web.auth.domain.Token;
-import studio.wetrack.web.auth.service.TokenStorageService;
+import studio.wetrack.accountService.auth.domain.Token;
+import studio.wetrack.accountService.auth.service.TokenStorageService;
 
 import java.util.Collection;
 import java.util.HashMap;

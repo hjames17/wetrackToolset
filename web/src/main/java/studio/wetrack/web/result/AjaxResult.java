@@ -7,6 +7,8 @@
  */
 package studio.wetrack.web.result;
 
+import studio.wetrack.base.result.ErrorMessage;
+
 /**
  * 一句话是什么
  * 详细描述做什么

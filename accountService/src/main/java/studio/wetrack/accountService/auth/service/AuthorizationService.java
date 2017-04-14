@@ -1,6 +1,6 @@
-package studio.wetrack.web.auth.service;
+package studio.wetrack.accountService.auth.service;
 
-import studio.wetrack.web.auth.domain.Token;
+import studio.wetrack.accountService.auth.domain.Token;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.stereotype.Service;

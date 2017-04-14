@@ -1,4 +1,4 @@
-package studio.wetrack.web.auth.service.impl;
+package studio.wetrack.accountService.auth.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.BoundHashOperations;
@@ -6,9 +6,9 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.RedisSerializer;
 import org.springframework.data.redis.serializer.SerializationException;
 import org.springframework.security.core.GrantedAuthority;
-import studio.wetrack.web.auth.domain.Token;
-import studio.wetrack.web.auth.domain.User;
-import studio.wetrack.web.auth.service.TokenStorageService;
+import studio.wetrack.accountService.auth.domain.Token;
+import studio.wetrack.accountService.auth.domain.User;
+import studio.wetrack.accountService.auth.service.TokenStorageService;
 
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;

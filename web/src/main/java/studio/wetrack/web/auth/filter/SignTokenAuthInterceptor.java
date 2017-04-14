@@ -1,11 +1,11 @@
 package studio.wetrack.web.auth.filter;
 
 
-import studio.wetrack.web.auth.domain.SimpleGrantedAuthority;
-import studio.wetrack.web.auth.domain.Token;
+import studio.wetrack.accountService.auth.domain.SimpleGrantedAuthority;
+import studio.wetrack.accountService.auth.domain.Token;
 import studio.wetrack.web.auth.exceptions.TokenAuthorizationException;
-import studio.wetrack.web.auth.service.AuthorizationService;
-import studio.wetrack.web.auth.service.TokenService;
+import studio.wetrack.accountService.auth.service.AuthorizationService;
+import studio.wetrack.accountService.auth.service.TokenService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.method.HandlerMethod;

@@ -1,8 +1,8 @@
-package studio.wetrack.web.auth.service;
+package studio.wetrack.accountService.auth.service;
 
 import studio.wetrack.base.utils.common.UUIDGenerator;
-import studio.wetrack.web.auth.domain.Token;
-import studio.wetrack.web.auth.domain.User;
+import studio.wetrack.accountService.auth.domain.Token;
+import studio.wetrack.accountService.auth.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;

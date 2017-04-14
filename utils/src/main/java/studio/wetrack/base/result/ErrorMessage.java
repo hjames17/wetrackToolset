@@ -1,4 +1,4 @@
-package studio.wetrack.web.result;
+package studio.wetrack.base.result;
 
 /**
  * Created by zhangsong on 15/11/12.

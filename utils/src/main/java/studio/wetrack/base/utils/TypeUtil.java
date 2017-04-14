@@ -1,12 +1,24 @@
 package studio.wetrack.base.utils;
 
 import java.lang.reflect.Type;
+import java.util.Collection;
 import java.util.Date;
+import java.util.Map;
 
 /**
  * Created by zhanghong on 16/12/30.
  */
 public class TypeUtil {
+
+
+
+    public static boolean isVoid(Type t){
+        if(t == null){
+            return false;
+        }
+        String name = t.getTypeName();
+        return name.equals("void") || name.equals("java.lang.Void");
+    }
 
     public static boolean isBoolean(Type t){
         if(t == null){
@@ -61,5 +73,21 @@ public class TypeUtil {
         }
         String name = t.getTypeName();
         return name.equals(Date.class.getName());
+    }
+
+    public static boolean isCollection(Class c){
+        return Collection.class.isAssignableFrom(c);
+    }
+
+    public static boolean isMap(Class c){
+        return Map.class.isAssignableFrom(c);
+    }
+
+    public static boolean isPrimitive(Type t) {
+        return isBoolean(t) || isInt(t) || isLong(t) || isDouble(t) || isFloat(t);
+    }
+
+    public static boolean isSystemType(Type t){
+        return isPrimitive(t) || isString(t) || isDate(t);
     }
 }

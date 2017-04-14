@@ -1,4 +1,4 @@
-package studio.wetrack.web.auth.domain;
+package studio.wetrack.accountService.auth.domain;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

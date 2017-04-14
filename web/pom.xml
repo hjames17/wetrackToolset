@@ -75,17 +75,16 @@
             <version>${spring.security.version}</version>
             <optional>true</optional>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.data</groupId>
-            <artifactId>spring-data-redis</artifactId>
-            <version>1.5.1.RELEASE</version>
-            <optional>true</optional>
-        </dependency>
 
         <dependency>
             <groupId>studio.wetrack</groupId>
             <artifactId>wetrack-utils</artifactId>
             <version>${export.utils.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>studio.wetrack</groupId>
+            <artifactId>account-service</artifactId>
+            <version>${export.accserv.version}</version>
         </dependency>
 
 

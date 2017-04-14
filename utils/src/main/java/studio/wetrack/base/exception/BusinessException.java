@@ -5,9 +5,9 @@
  * Date:     2015年6月12日 下午8:44:49
  * Description: 
  */
-package studio.wetrack.web.exception;
+package studio.wetrack.base.exception;
 
-import studio.wetrack.web.result.ErrorMessage;
+import studio.wetrack.base.result.ErrorMessage;
 
 /**
  * 一句话是什么
