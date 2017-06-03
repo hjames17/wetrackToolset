@@ -15,6 +15,7 @@ public class WebNotificationMessageChannel extends AbstractMessageChannel {
     WebNotificationMessageChannel(){
 
     }
+
     @Override
     protected void doSend(Message message){
 //        WebNotificationMessage webMessage = (WebNotificationMessage)message;

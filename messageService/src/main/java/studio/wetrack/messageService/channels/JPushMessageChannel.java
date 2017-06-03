@@ -30,6 +30,6 @@ public class JPushMessageChannel extends AbstractMessageChannel {
 
     @Override
     public String getName() {
-        return "getui";
+        return "jpush";
     }
 }

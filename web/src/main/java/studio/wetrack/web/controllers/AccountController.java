@@ -1,5 +1,6 @@
 package studio.wetrack.web.controllers;
 
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import studio.wetrack.accountService.AccountService;
@@ -43,12 +44,12 @@ public class AccountController {
     }
 
     @RequestMapping(value = AccountController.ACC_LOGIN_PATH)
-    public LoginOut login(LoginForm loginForm) throws BusinessException{
+    public LoginOut login(@RequestBody LoginForm loginForm) throws BusinessException{
         return accountService.login(loginForm);
     }
 
     @RequestMapping(value = AccountController.ACC_QUICK_LOGIN_PATH)
-    public LoginOut quickLogin(LoginForm loginForm) throws BusinessException{
+    public LoginOut quickLogin(@RequestBody LoginForm loginForm) throws BusinessException{
         return accountService.quickLogin(loginForm);
     }
 
@@ -62,13 +63,13 @@ public class AccountController {
     }
 
     @RequestMapping(value = AccountController.ACC_SMART_LOGIN_PATH)
-    public LoginOut smartLogin(SmartLoginForm loginForm) throws BusinessException{
+    public LoginOut smartLogin(@RequestBody SmartLoginForm loginForm) throws BusinessException{
         return accountService.login(loginForm);
     }
 
     @SignTokenAuth
     @RequestMapping(value = AccountController.ACC_LOGOUT_PATH)
-    public void logout(LoginOut loginOut) throws BusinessException{
+    public void logout(@RequestBody LoginOut loginOut) throws BusinessException{
         accountService.logout(loginOut);
     }
 
@@ -79,12 +80,12 @@ public class AccountController {
     }
 
     @RequestMapping(value = AccountController.ACC_CHANGE_PASS_PATH)
-    public void changePass(ChangePass changeForm) throws BusinessException{
+    public void changePass(@RequestBody ChangePass changeForm) throws BusinessException{
         accountService.changePass(changeForm);
     }
 
     @RequestMapping(value = AccountController.ACC_RESET_PASS_PATH)
-    public void resetPass(ResetPass resetForm) throws BusinessException{
+    public void resetPass(@RequestBody ResetPass resetForm) throws BusinessException{
         accountService.resetPass(resetForm);
     }
 
