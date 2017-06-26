@@ -29,7 +29,9 @@ public class TokenServiceImpl implements TokenService{
     /**
      * true，只允许一个同时登录的人， false， 允许多个登录
      * 默认为true
+     * 废弃，转入{@link User}
      */
+    @Deprecated
     boolean onlyOnePermitted = true;
 
     public Token login(User user){
@@ -60,15 +62,17 @@ public class TokenServiceImpl implements TokenService{
         addToken(token);
 
         //remove existing tokens by condition
-        if(tokens != null){
-            for(Token exist : copiedTokens){
-                if(exist.isExpired() || exist.isLoggedout() || isOnlyOnePermitted()){
+        //TODO 一到达上限就踢所有人，这合适吗？
+        if(tokens != null && user.maxLoginLimitReached(tokens.size())){
+            for (Token exist : copiedTokens) {
+                if (exist.isExpired() || exist.isLoggedout()) {
                     tokenStorageService.removeByTokenString(exist.getToken());
                 }
             }
         }
         return token;
     }
+
 
     public void logout(String token){
         removeByTokenString(token);

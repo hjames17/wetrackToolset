@@ -15,10 +15,12 @@ import java.util.Collection;
 public class User implements UserDetails {
 
     public static final int NEVER_EXPIRED = -1;
+    public static final int LOGIN_COUNT_UNLIMIT = -1;
 
     String id;
     String password;
     int loginLifeTime; //登录有效期，单位为秒
+    int maxLoginCount = 1; //最大登录数，默认为1
 
     /**
      * 角色定义，这里不做预定义，由业务自行定义
@@ -51,6 +53,20 @@ public class User implements UserDetails {
             }
         }
 
+    }
+
+
+
+    /**
+     * User构造函数
+     * @param id id
+     * @param password password
+     * @param loginLifeTime 过期时间
+     * @param roles 角色名称的集合
+     */
+    public User(String id, String password, int loginLifeTime, int maxLoginCount, String... roles){
+        this(id, password, loginLifeTime, roles);
+        this.maxLoginCount = maxLoginCount;
     }
 
     public String getId(){
@@ -112,12 +128,34 @@ public class User implements UserDetails {
         return loginLifeTime == NEVER_EXPIRED;
     }
 
+    public int getMaxLoginCount() {
+        return maxLoginCount;
+    }
 
-    public String toString(){
-        String s = "";
-        for(GrantedAuthority r : roles){
-            s += r.getAuthority() + " ";
+    public void setMaxLoginCount(int maxLoginCount) {
+        this.maxLoginCount = maxLoginCount;
+    }
+
+    public boolean maxLoginLimitReached(int count){
+        if(LOGIN_COUNT_UNLIMIT == maxLoginCount){
+            return false;
         }
-        return "id " + id + ", roles " + s;
+        return count >= maxLoginCount;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id='" + id + '\'' +
+                ", password='" + password + '\'' +
+                ", loginLifeTime=" + loginLifeTime +
+                ", maxLoginCount=" + maxLoginCount +
+                ", roles=" + roles +
+                '}';
+    }
+
+    public static void main(String[] args){
+        User u = new User("1", "123", -1, 2, ROLE_FULL);
+        System.out.println(u.toString());
     }
 }

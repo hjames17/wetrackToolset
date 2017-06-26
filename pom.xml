@@ -45,7 +45,7 @@
 
         <export.utils.version>1.6</export.utils.version>
         <export.web.version>1.7</export.web.version>
-        <export.accserv.version>1.5</export.accserv.version>
+        <export.accserv.version>1.6</export.accserv.version>
         <export.msgserv.version>1.1</export.msgserv.version>
         <export.docGen.version>1.1</export.docGen.version>
     </properties>
