@@ -64,6 +64,7 @@ public abstract class AbstrackAccountService implements AccountService {
         Token token = tokenService.login(user);
         LoginOut loginOut = new LoginOut();
         loginOut.setId(id);
+        loginOut.setType(form.getType());
         loginOut.setToken(token.getToken());
 
         return loginOut;
@@ -102,6 +103,7 @@ public abstract class AbstrackAccountService implements AccountService {
         Token token = tokenService.login(user);
         LoginOut loginOut = new LoginOut();
         loginOut.setId(id);
+        loginOut.setType(form.getType());
         loginOut.setToken(token.getToken());
 
         return loginOut;
