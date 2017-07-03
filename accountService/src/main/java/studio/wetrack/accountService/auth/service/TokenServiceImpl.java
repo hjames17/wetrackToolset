@@ -56,21 +56,36 @@ public class TokenServiceImpl implements TokenService{
         List<Token> copiedTokens = new ArrayList<Token>();
         copiedTokens.addAll(tokens);
 
-        //create new token
-        String tokenString = UUIDGenerator.generate().toUpperCase();
-        Token token = new Token(tokenString, user);
-        addToken(token);
-
         //remove existing tokens by condition
-        //TODO 一到达上限就踢所有人，这合适吗？
-        if(tokens != null && user.maxLoginLimitReached(tokens.size())){
+        Boolean f = true;
+        int n = 0;  //记录被删掉的数量
+        if(user.getMaxLoginCount() == 1){
+            for (Token exist : copiedTokens) {
+                tokenStorageService.removeByTokenString(exist.getToken());
+            }
+        }else{
             for (Token exist : copiedTokens) {
                 if (exist.isExpired() || exist.isLoggedout()) {
                     tokenStorageService.removeByTokenString(exist.getToken());
+                    n++;
                 }
             }
         }
-        return token;
+
+        if(user.getMaxLoginCount() > 1 && user.maxLoginLimitReached(tokens.size() - n)){
+            f = false;
+        }
+
+        //create new token
+        if(f){
+            String tokenString = UUIDGenerator.generate().toUpperCase();
+            Token token = new Token(tokenString, user);
+            addToken(token);
+            return token;
+        }else{
+            return null;
+        }
+
     }
 
 
