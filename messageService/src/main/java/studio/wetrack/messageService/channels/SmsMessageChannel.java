@@ -15,7 +15,7 @@ public class SmsMessageChannel extends AbstractMessageChannel {
 
     SmsService smsService;
 
-    SmsMessageChannel(SmsService smsService){
+    public SmsMessageChannel(SmsService smsService){
         this.smsService = smsService;
     }
 
