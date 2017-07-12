@@ -104,7 +104,7 @@ public class GeoUtil {
 //                    ,baiDuResult.result.get(0).location.lat);
 //
 //        }
-        if(baiDuResult != null && baiDuResult.status != 0 && baiDuResult.result.size() > 0){
+        if(baiDuResult != null && baiDuResult.status == 0 && baiDuResult.result.size() > 0){
             return new GeoLocation(baiDuResult.result.get(0).location.lng
                     ,baiDuResult.result.get(0).location.lat);
         }else{
