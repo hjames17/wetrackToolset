@@ -44,7 +44,7 @@
         <spring.security.version>4.1.0.RELEASE</spring.security.version>
 
         <export.utils.version>1.6</export.utils.version>
-        <export.web.version>1.7</export.web.version>
+        <export.web.version>1.8</export.web.version>
         <export.accserv.version>1.6</export.accserv.version>
         <export.msgserv.version>1.1</export.msgserv.version>
         <export.docGen.version>1.1</export.docGen.version>

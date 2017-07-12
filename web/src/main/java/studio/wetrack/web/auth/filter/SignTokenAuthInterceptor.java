@@ -1,15 +1,14 @@
 package studio.wetrack.web.auth.filter;
 
 
-import studio.wetrack.accountService.auth.domain.SimpleGrantedAuthority;
-import studio.wetrack.accountService.auth.domain.Token;
-import studio.wetrack.web.auth.exceptions.TokenAuthorizationException;
-import studio.wetrack.accountService.auth.service.AuthorizationService;
-import studio.wetrack.accountService.auth.service.TokenService;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
+import studio.wetrack.accountService.auth.domain.SimpleGrantedAuthority;
+import studio.wetrack.accountService.auth.domain.Token;
+import studio.wetrack.accountService.auth.service.AuthorizationService;
+import studio.wetrack.accountService.auth.service.TokenService;
+import studio.wetrack.web.auth.exceptions.TokenAuthorizationException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -22,10 +21,13 @@ public class SignTokenAuthInterceptor extends HandlerInterceptorAdapter{
 //    private static final String HEADER_CUSTOMER_ID = "customerId";
     public static final String HEADER_CUSTOMER_TOKEN = "token";
 
-    @Autowired
     TokenService tokenService;
-    @Autowired
     AuthorizationService authorizationService;
+
+    public SignTokenAuthInterceptor(TokenService tokenService, AuthorizationService authorizationService){
+        this.tokenService = tokenService;
+        this.authorizationService = authorizationService;
+    }
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws TokenAuthorizationException {
