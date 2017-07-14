@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.socket.TextMessage;
 import org.springframework.web.socket.WebSocketSession;
+import studio.wetrack.base.utils.jackson.Jackson;
 import studio.wetrack.messageService.base.AbstractMessageChannel;
 import studio.wetrack.messageService.base.Message;
 import studio.wetrack.messageService.messages.WebNotificationMessage;
@@ -45,7 +46,7 @@ public class WebNotificationMessageChannel extends AbstractMessageChannel {
     }
 
     private boolean sendMessage(WebSocketSession session, WebNotificationMessage message){
-        TextMessage textMessag = new TextMessage(message.getContent());
+        TextMessage textMessag = new TextMessage(Jackson.mobile().writeValueAsString(message));
 
         if (session.isOpen()) {
             try {

@@ -126,8 +126,8 @@ public class WebSocketInmemorySessionStore implements WebSocketSessionStore {
                 if (!session.isOpen()) {
                     closedList.add(session);
                 }
-                sessions.removeAll(closedList);
             }
+            sessions.removeAll(closedList);
 
         }
         return sessions;
