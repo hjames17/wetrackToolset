@@ -40,11 +40,23 @@ public class EmailMessageChannel extends AbstractMessageChannel {
             }else{
                 sender.setMailFrom(email.getSender());
             }
-            EmailUtil.sendMail(email.getText(), "", email.getTitle(), email.getReceiver(), sender);
         } catch (Exception e) {
-            LOGGER.error("send email error! msg {}, receiver {}, title {}", email.getId(), email.getReceiver(), email.getTitle());
+            LOGGER.error("send email error! msg {}, title {} : {}", email.getId(), email.getTitle(), e.getMessage());
             e.printStackTrace();
+            return;
         }
+
+        if(email.getReceivers() != null && email.getReceivers().size() > 0){
+            for (String s : email.getReceivers()) {
+                try {
+                    EmailUtil.sendMail(email.getText(), "", email.getTitle(), s, sender);
+                } catch (Exception e) {
+                    LOGGER.error("send email error! msg {}, title {}, receiver {} : {}", email.getId(), email.getTitle(), s, e.getMessage());
+                    e.printStackTrace();
+                }
+            }
+        }
+
     }
 
     @Override

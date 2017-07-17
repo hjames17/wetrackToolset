@@ -22,7 +22,11 @@ public class SmsMessageChannel extends AbstractMessageChannel {
     @Override
     protected void doSend(Message message) {
         SmsMessage sms = (SmsMessage)message;
-        boolean success = smsService.sendMessage(sms.getReceiver(), sms.getText());
+        if(sms.getReceivers() != null && sms.getReceivers().size() > 0){
+            for (String  s: sms.getReceivers()) {
+                smsService.sendMessage(s, sms.getText());
+            }
+        }
     }
 
     @Override

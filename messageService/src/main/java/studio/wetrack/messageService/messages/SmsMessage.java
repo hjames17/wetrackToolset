@@ -3,13 +3,15 @@ package studio.wetrack.messageService.messages;
 
 import studio.wetrack.messageService.base.Message;
 
+import java.util.List;
+
 /**
  * Created by zhanghong on 16/3/1.
  */
 public class SmsMessage implements Message {
     int id;
     String text;
-    String receiver;
+    List<String> receivers;
     @Override
     public int getId() {
         return id;
@@ -27,11 +29,11 @@ public class SmsMessage implements Message {
         this.text = text;
     }
 
-    public String getReceiver() {
-        return receiver;
+    public List<String> getReceivers() {
+        return receivers;
     }
 
-    public void setReceiver(String receiver) {
-        this.receiver = receiver;
+    public void setReceivers(List<String> receivers) {
+        this.receivers = receivers;
     }
 }

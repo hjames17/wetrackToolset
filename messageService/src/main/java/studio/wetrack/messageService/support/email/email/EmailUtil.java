@@ -30,10 +30,10 @@ public class EmailUtil {
 			sender.setMailTo(mailTo.split(","), Message.RecipientType.TO);
 			sender.sendMail();
 		} catch (MessagingException e) {
-			logger.error(" 发送邮件失败 !"+e.getMessage());
+			logger.error("发送邮件给{}失败:{}", mailTo, e.getMessage());
 			throw e;
 		} catch (Exception e) {
-			logger.error(" 发送邮件失败 !"+e.getMessage());
+			logger.error("发送邮件给{}失败:{}", mailTo, e.getMessage());
 			throw e;
 		}
 	}
