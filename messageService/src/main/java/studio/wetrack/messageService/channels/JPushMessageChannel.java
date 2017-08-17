@@ -16,7 +16,7 @@ public class JPushMessageChannel extends AbstractMessageChannel {
     private Logger logger = LoggerFactory.getLogger(JPushMessageChannel.class);
 
     JPusher jPusher;
-    JPushMessageChannel(JPusher jPusher){
+    public JPushMessageChannel(JPusher jPusher){
         this.jPusher = jPusher;
     }
 

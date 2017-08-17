@@ -16,7 +16,7 @@ import studio.wetrack.messageService.messages.WechatMessage;
 public class WechatMessageChannel extends AbstractMessageChannel {
 	private Logger LOGGER = LoggerFactory.getLogger(WechatMessageChannel.class);
 
-	WechatMessageChannel(WxMpService wxMpService) {
+	public WechatMessageChannel(WxMpService wxMpService) {
 		this.wxMpService = wxMpService;
 	}
 
