@@ -25,15 +25,16 @@ public class EmailMessageChannel extends AbstractMessageChannel {
         this.smtp = smtp;
         this.userName = userName;
         this.password = password;
-        sender = new MailSendAttachment(smtp, userName, password);
+//        sender = new MailSendAttachment(smtp, userName, password);
     }
 
 
-    MailSendAttachment sender;
+//    MailSendAttachment sender;
 
     @Override
     protected void doSend(Message message) {
         EmailMessage email = (EmailMessage)message;
+        MailSendAttachment sender = new MailSendAttachment(smtp, userName, password);
         try {
             if(StringUtils.isEmpty(email.getSender())){
                 sender.setMailFrom(userName);
