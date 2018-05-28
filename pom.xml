@@ -62,7 +62,7 @@
         <!--</repository>-->
         <repository>
         <id>wetrack-repo</id>
-        <url>http://wiki.wetrack.studio:8081/repository/maven-release</url>
+        <url>http://wiki.wetrack.studio:8081/repository/maven-releases/</url>
         </repository>
     </distributionManagement>
 
