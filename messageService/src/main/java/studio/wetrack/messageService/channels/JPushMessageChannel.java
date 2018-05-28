@@ -22,7 +22,7 @@ public class JPushMessageChannel extends AbstractMessageChannel {
 
     @Override
     protected void doSend(Message message) {
-        JPushMessage jpMessage = new JPushMessage();
+        JPushMessage jpMessage = (JPushMessage) message;
         logger.info("jpush发送消息，消息内容为:{}", Jackson.base().writeValueAsString(jpMessage));
 
         boolean success = jPusher.pushEvent(jpMessage);
